@@ -1,185 +1,78 @@
-<div>
-    <a class="hiddenanchor" id="signup"></a>
-    <a class="hiddenanchor" id="signin"></a>
-    <p id="removeNotify">Hide help.</p>
-    <div class="login_wrapper">
-        <div class="animate form login_form">
-            <section class="login_content">
-                <hr style="background-color: #f7941d;">
-                <div class="clearfix"></div>
-                <center>
-                    <img src="<?= @base_url('assets/template/images/clientSpecific/silverstone-logo.png'); ?>" style="width: 12em; height: 6em;">
-                    <!-- <h1 style="background-color:#f7941d;color:#fff; width:5em; border-radius:3em; padding:2em 2em 2em .5em;">Welcome</h1> -->
-                </center>
-                <div class="alert alert-danger" role="alert" id="loginerrorBox" style="display:none;">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    <p></p>
-                </div>
-                <div class="alert alert-success" role="alert" id="loginSuccessBox" style="display:none;">
-                    <span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span>
-                    <span class="sr-only">Success:</span>
-                    <p></p>
-                </div>
-                <div id="login-form" style="display: block;">
-                    <div id="partLogin1">
-                        <center><div id="part1LoginErr" style="margin-top: 0.5em; font-weight: bolder;"></div></center>
-                        <form id="loginForm" style="color:#fff;padding:0px 1em 0 1em; ">
-                            <h2>Login</h2>
-                            <div>
-                                <input type="email" class="form-control" placeholder="Email" required="true" id="email" name="email" />
-                            </div>
-                            <div>
-                                <input type="password" class="form-control" placeholder="Password" required="true" id="password" name="password" />
-                            </div>
-                            <div>
-                                <input  type="button" name="login-submit" id="part1LoginBtn" value="Login" style="background-color:#f7941d; width:5em; border-radius:1em; padding:.1em .1em .1em .1em;">
-                            </div>
-                        </form>
-                    </div>
-                    <div id="partLogin2">
-                        <center><div id="part2LoginErr" style="margin-top: 0.5em; font-weight: bolder;"></div></center>
-                        <form id="loginForm" style="color:#fff;padding:0px 1em 0 1em; ">
-                            <h2>First Time Login</h2>
-                            <input type="hidden" name="No" id="No">
-                            <input type="hidden" name="type" id="type">
-                            <div>
-                                <input type="email" class="form-control" placeholder="Email" required="true" id="email2" name="email2" />
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" placeholder="Reset Code" required="true" id="code" name="code" />
-                            </div>
-                            <div>
-                                <input  type="button" name="login-submit" id="part2LoginBtn" value="Verify Account" style="background-color:#f7941d; width:5em; border-radius:1em; padding:.1em .1em .1em .1em;">
-                            </div>
-                        </form>
-                    </div>
-                    <div id="partLogin3">
-                        <center><div id="part3LoginErr" style="margin-top: 0.5em; font-weight: bolder;"></div></center>
-                        <form id="loginForm" style="color:#fff;padding:0px 1em 0 1em; ">
-                            <h2>Forgot Password</h2>
-                            <div>
-                                <input type="email" class="form-control" placeholder="Email" required="true" id="forgot-email" name="forgot-email" />
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" placeholder="No." required="true" id="forgot-number" name="forgot-number" />
-                            </div>
-                            <div>
-                                <input  type="button" name="submit" id="forgotBtn" value="Reset" style="background-color:#f7941d; width:5em; border-radius:1em; padding:.1em .1em .1em .1em;">
-                            </div>
-                        </form>
-                    </div>
-                    <div id="partLogin4">
-                        <center><div id="part4LoginErr" style="margin-top: 0.5em; font-weight: bolder;"></div></center>
-                        <form id="loginForm" style="color:#fff;padding:0px 1em 0 1em; ">
-                            <h2>Reset password</h2>
-                            <div>
-                                <input type="text" class="form-control" placeholder="Reset Code" required="true" id="reset-code" name="reset-code" />
-                            </div>
-                            <div>
-                                <input type="password" class="form-control" placeholder="New Password" required="true" id="reset-password" name="reset-password" />
-                            </div>
-                            <div>
-                                <input type="password" class="form-control" placeholder="Confirm Password" required="true" id="reset-confirm" name="reset-confirm" />
-                            </div>
-                            <div>
-                                <input  type="button" name="submit" id="resetBtn" value="Reset" style="background-color:#f7941d; width:5em; border-radius:1em; padding:.1em .1em .1em .1em;">
-                            </div>
-                        </form>
-                    </div>
-                    <div>
-                        <p class="change_link">
-                            <a href="#" class="to_register" id="register-form-link" style="color:#fff;"> Create Account </a>
-                        </p>
-                    </div>
-                </div>
-                <div id="register-form" style="display: none;">
-                    <div id="part-1">
-                        <center><div id="part1Err" style="margin-top: 0.5em; font-weight: bolder;"></div></center>
-                        <form id="loginForm" style="color:#fff;padding:0px 1em 0 1em; ">
-                            <h2>Create Account</h2>
-                            <div>
-                                <select name="Rtype" id="Rtype" class="form-control" style=" border-radius:1em; padding:.1em .1em .1em .1em;margin-bottom: 1em;">
-                                    <option selected="true" disabled="true" value="0" required>Select a Role</option>
-                                    <option value="1">Employee</option>
-                                    <option value="2">Customer</option>
-                                </select>
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" placeholder="No." required="" id="RegNo" name="RegNo" />
-                            </div>
-                            <div>
-                                <input  type="button" name="submit" id="part1Btn" value="Next" style="background-color:#f7941d; width:5em; border-radius:1em; padding:.1em .1em .1em .1em;">
-                            </div>
-                        </form>
-                    </div>
-                    <div id="part-2">
-                        <center><div id="part2Err" style="margin-top: 0.5em; font-weight: bolder;"></div></center>
-                        <form role="form" style="color:#fff;padding:0px 1em 0 1em; ">
-                            <h2>Create Account</h2>
-                            <input type="hidden" name="RegistrationNo" id="RegistrationNo">
-                            <input type="hidden" name="roletype" id="roletype">
-                            <input type="hidden" name="fName" id="fName">
-                            <input type="hidden" name="lName" id="lName">
-                            <input type="hidden" name="mName" id="mName">
-                            <div>
-                                <input type="email" class="form-control" placeholder="Email" required="" id="email1" name="email1" />
-                            </div>
-                            <div>
-                                <input type="password" class="form-control" placeholder="Password" required="" id="password1" name="password1" />
-                            </div>
-                            <div>
-                                <input type="password" class="form-control" placeholder="Confirm Password" required="" id="confirm_password" name="confirm_password" />
-                            </div>
-                            <div>
-                                <input  type="button" name="submit" id="part2Btn" value="Create" style="background-color:#f7941d; width:5em; border-radius:1em; padding:.1em .1em .1em .1em;">
-                            </div>
-                        </form>
-                    </div>
-                    <div id="part-3">
-                        <center><div id="part3Err" style="margin-top: 0.5em; font-weight: bolder;"></div></center>
-                        <form role="form" style="color:#fff;padding:0px 1em 0 1em; ">
-                            <h2>Confirm Account</h2>
-                            <input type="hidden" name="NoConf" id="NoConf">
-                            <input type="hidden" name="typeR" id="typeR">
-                            <div>
-                                <input type="email" class="form-control" placeholder="Email" required="" id="email2Conf" name="email2Conf" />
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" placeholder="Reset Code" required="" id="codeConf" name="codeConf" />
-                            </div>
-                            <div>
-                                <input  type="button" name="submit" id="part3Btn" value="Register" style="background-color:#f7941d; width:5em; border-radius:1em; padding:.1em .1em .1em .1em;">
-                            </div>
-                        </form>
-                    </div>
+<!DOCTYPE html>
+<html>
 
-                    <div>
-                        <p class="change_link">
-                            <a href="#" class="to_register" id="login-form-link" style="color:#fff;"> Login </a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="clearfix"></div>
 
-                <div class="separator">
-                    <a href="#" id="forgot" style="color:#fff;">Forgot your password?</a>
+<!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/login_two_columns.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jan 2018 13:26:01 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Huduna Pay | Login 2</title>
+
+    <link href="<?= @base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= @base_url(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="<?= @base_url(); ?>assets/css/animate.css" rel="stylesheet">
+    <link href="<?= @base_url(); ?>assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="loginColumns animated fadeInDown">
+        <div class="row">
+            <center><h2 class="font-bold">Welcome to Huduma Pay</h2></center>
+            <div class="col-md-6 col-md-offset-3">
+                <?php 
+                    if ($this->session->flashdata('error_message')) {
+                ?>
+                <div class="alert alert-danger"><?= @$this->session->flashdata('error_message');?></div>
+                <?php } ?>
+                <?php 
+                    if ($this->session->flashdata('succes_message')) {
+                ?>
+                <div class="alert alert-success"><?= @$this->session->flashdata('succes_message');?></div>
+                <?php } ?>
+                <div class="ibox-content">
+                    <form class="m-t" role="form" action="<?= @base_url(); ?>auth/verify" method="post">
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email" required="">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Password" required="">
+                        </div>
+                        <button type="submit" id="loginBtn" class="btn btn-primary block full-width m-b">Login</button>
+
+                        <a href="#">
+                            <small>Forgot password?</small>
+                        </a>
+
+                        <p class="text-muted text-center">
+                            <small>Do not have an account?</small>
+                        </p>
+                        <a class="btn btn-sm btn-white btn-block" href="<?= @base_url(); ?>auth/signup">Create an account</a>
+                    </form>
                 </div>
-                <div class="clearfix"></div>
-                <br />
-                <div>
-                    <!-- <img src="<?php //echo base_url('assets/images/clientSpecific/logo.png'); ?>" >  -->
-                    <p>Powered By DataposIT ©<?php echo date('Y'); ?></p>
-                </div>
-            <div style="background-color:#f7941d; height:5px; width:100%;"></div>         
-            </section>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-6">
+                Huduma Pay
+            </div>
+            <div class="col-md-6 text-right">
+               <small>© 2014-2015</small>
+            </div>
         </div>
     </div>
 
-    <center>
-    <!-- <img src="<?php echo base_url('assets/template/images/clientSpecific/White DP Icon.png') ?>" style="height:50px; width:50px;margin-top: 1em;"> -->
-    <img src="<?php echo base_url('assets/template/images/clientSpecific/Dataposit Logo 2017 monochrome-02.png') ?>" style="height:90px; width:100px;margin-top: 0.1em;">
-    </center>
-</div>
-<?= $this->load->view('auth/auth_view_footer'); ?>
+</body>
+<script src="<?= @base_url(); ?>assets/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+    });
+</script>
+
+</html>

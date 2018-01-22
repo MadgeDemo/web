@@ -1,66 +1,84 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-5" id="part-1">
-			<div id="part1Err"></div>
-			<form class="form-group">
-				<div class="row">
-					<div class="col-sm-3"><label>Customer No.:</label></div>
-					<div class="col-sm-9"><input class="form-control" type="text" name="RegNo" id="RegNo" required></div>
-					<div class="col-sm-3"><label>User Type.:</label></div>
-					<div class="col-sm-9">
-						<select name="type" id="type" class="form-control" required>
-							<option selected="true" disabled="true" value="0">Select a Role</option>
-							<option value="1">Employee</option>
-							<option value="2">Customer</option>
-						</select>
-					</div>
-				</div>
-				<button class="btn btn-primary" type="submit" id="part1Btn" name="submit">Next</button>
-			</form>
-		</div>
-		<div class="col-md-5" id="part-2">
-			<div id="part2Err"></div>
-			<form class="form-group">
-				<input type="hidden" name="RegistrationNo" id="RegistrationNo">
-				<input type="hidden" name="roletype" id="roletype">
-				<input type="hidden" name="fName" id="fName">
-				<input type="hidden" name="lName" id="lName">
-				<div class="row">
-					<div class="col-sm-3"><label>Email:</label></div>
-					<div class="col-sm-9"><input class="form-control" type="email" name="email1" id="email1" required></div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3"><label>Password:</label></div>
-					<div class="col-sm-9"><input class="form-control" type="password" name="password1" id="password1" required></div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3"><label>Confirm Password:</label></div>
-					<div class="col-sm-9"><input class="form-control" type="password" name="confirm_password" id="confirm_password" required></div>
-				</div>
-				<button class="btn btn-primary" type="submit" id="part2Btn" name="submit">Sign Up</button>
-			</form>
-		</div>
-		<div class="col-md-5" id="part-3">
-			<div id="part3Err"></div>
-			<form class="form-group">
-				<div class="row">
-					<div class="col-sm-3"><label>Email:</label></div>
-					<div class="col-sm-9"><input class="form-control" type="email" name="email2" id="email2" required></div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3"><label>Reset Code:</label></div>
-					<div class="col-sm-9"><input class="form-control" type="text" name="code" id="code" required></div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3"><label>Password:</label></div>
-					<div class="col-sm-9"><input class="form-control" type="password" name="password2" id="password2" required></div>
-				</div>
-				<button class="btn btn-primary" type="submit" id="part3Btn" name="submit">Sign Up</button>
-			</form>
-		</div>
-		<div class="col-md-7">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vulputate rhoncus ex, sagittis tempor neque faucibus at. Vivamus ipsum justo, posuere sed mi in, volutpat varius erat. Duis varius purus et sapien luctus, non placerat metus porttitor. Mauris mollis enim neque, sit amet efficitur metus egestas eget. Donec at mi est. Vivamus aliquam tempor euismod. Proin nec porttitor nunc. Ut scelerisque, ex id gravida porttitor, ex arcu accumsan quam, in mollis orci augue sed lacus. Sed tincidunt nisi felis, eget dapibus nisl viverra at.</p>
-		</div>
-	</div>
-</div>
-<?= $this->load->view('signup_view_footer'); ?>
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jan 2018 13:26:01 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Huduma Pay | Register</title>
+
+    <link href="<?= @base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= @base_url(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="<?= @base_url(); ?>assets/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="<?= @base_url(); ?>assets/css/animate.css" rel="stylesheet">
+    <link href="<?= @base_url(); ?>assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div>
+            <h3>Huduma Pay</h3>
+            <p>Create account to access our services.</p>
+            <?php 
+                if ($this->session->flashdata('error_message')) {
+            ?>
+            <div class="alert alert-danger"><?= @$this->session->flashdata('error_message');?></div>
+            <?php } ?>
+            <?php 
+                if ($this->session->flashdata('succes_message')) {
+            ?>
+            <div class="alert alert-success"><?= @$this->session->flashdata('succes_message');?></div>
+            <?php } ?>
+            <div class="ibox-content">
+                <form class="m-t" role="form" action="<?= @base_url(); ?>auth/register" method="post">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="Name" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Email" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phone" class="form-control" placeholder="Phone" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="confirm_password" class="form-control" placeholder="Confirm password" required="">
+                    </div>
+                    <div class="form-group">
+                            <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy </label></div>
+                    </div>
+                    <button type="submit" id="registerBtn" class="btn btn-primary block full-width m-b">Register</button>
+
+                <p class="text-muted text-center"><small>Already have an account?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="<?= @base_url(); ?>">Login</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="<?= @base_url(); ?>assets/js/jquery-3.1.1.min.js"></script>
+    <script src="<?= @base_url(); ?>assets/js/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="<?= @base_url(); ?>assets/js/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+</body>
+
+
+<!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jan 2018 13:26:01 GMT -->
+</html>

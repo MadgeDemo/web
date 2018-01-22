@@ -77,25 +77,29 @@ if(!defined("BASEPATH")) exit("No direct script access allowed!");
 			return 	$libs;
 		}
 
+		function redirect() {
+			$usertype = $this->session->userdata('usertype');
+
+			if ($usertype == 1) $redirect = "admin";
+
+			if ($usertype == 2) $redirect = "customer";
+
+			redirect($redirect);
+		}
+
 		function isLoggedIn()
 		{
-			if (!$this->session->userdata('sisLoggedIn')) {
-				redirect(base_url());
-			}
+			if (!$this->session->userdata('isLoggedIn')) redirect(base_url());
 		}
 
 		function isAdmin()
 		{
-			if ($this->session->userdata('suser') != 1 || $this->session->userdata('suser') != '1') {
-				redirect(base_url('items'));
-			}
+			if ($this->session->userdata('usertype') != 1 || $this->session->userdata('usertype') != '1') self::redirect();
 		}
 
 		function isCustomer()
 		{
-			if ($this->session->userdata('suser') != 4 || $this->session->userdata('suser') != '4') {
-				redirect(base_url('items'));
-			}
+			if ($this->session->userdata('usertype') != 2 || $this->session->userdata('usertype') != '2') self::redirect();
 		}
 
 		function auth_template($data)

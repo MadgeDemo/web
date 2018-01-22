@@ -91,12 +91,12 @@ $config['conti-partner'] = 'Silverstone123456';
 // Default passwords
 
 //Company Details
-$config['company'] = 'Silverstone';
-$config['location'] = 'Silverstone Tyres (K) LTD';
+$config['company'] = 'Huduma Pay';
+$config['location'] = '';
 //Company Details
 
 //Constants
-$config['apiURL'] = 'http://localhost/api/';
+$config['apiURL'] = 'http://localhost/api2/';
 $config['appKey'] = 'w44o8s0o4w8scocg0koos0g4g488c8wgwokccogk';
 define('webServiceUrl', 'http://www.silverstonetest5.com:8094/Service.svc?wsdl'); //live at silverstone
 //Constants
