@@ -1,0 +1,17 @@
+*   Trying fe80::8db7:3f4:484b:7ce0...
+* TCP_NODELAY set
+* Connected to desktop-dqo3oba (fe80::8db7:3f4:484b:7ce0) port 8048 (#0)
+> GET /GLACIER-NAV15/OData/Company('SilverStone%20Tyres%20Ltd')/SalesLines HTTP/1.1
+Host: desktop-dqo3oba:8048
+Connection: Keep-Alive
+Accept: application/json
+Content-Type: application/json; charset=utf-8
+
+< HTTP/1.1 401 Unauthorized
+< Content-Length: 0
+< Server: Microsoft-HTTPAPI/2.0
+< WWW-Authenticate: Negotiate
+< Date: Wed, 13 Dec 2017 12:25:45 GMT
+< 
+* Curl_http_done: called premature == 0
+* Connection #0 to host desktop-dqo3oba left intact

@@ -1,0 +1,36 @@
+{
+	"employees" : [
+		{
+			"No" : "E000010",
+			"fName" : "Joshua",
+			"lName" : "Bakasa",
+			"email" : "joshua.bakasa@dataposit.co.ke"
+		},
+		{
+			"No" : "E000011",
+			"fName" : "Joshua",
+			"lName" : "Bakasa",
+			"email" : "joshua.bakasa@strathmore.edu"
+		},
+		{
+			"No" : "E000012",
+			"fName" : "Joshua",
+			"lName" : "Bakasa",
+			"email" : "baksajoshua09@gmail.com"
+		}
+	],
+	"customers" : [
+		{
+			"No" : "C000010",
+			"fName" : "Joshua",
+			"lName" : "Bakasa",
+			"email" : "bakasajoshua09@gmail.com"
+		},
+		{
+			"No" : "C000011",
+			"fName" : "Joshua",
+			"lName" : "Bakasa",
+			"email" : "baksajoshua@hotmail.com"
+		}
+	]
+}

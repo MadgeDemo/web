@@ -1,0 +1,42 @@
+*   Trying 10.10.10.222...
+* TCP_NODELAY set
+* Connected to 10.10.10.222 (10.10.10.222) port 7048 (#0)
+* Server auth using NTLM with user 'intergration'
+> GET /DynamicsNAV80/OData/Company(%27SilverStone%20Tyres%20Ltd%27)/custLedgerEntries?$format=json&$filter=Customer_No%20eq%20%27C0000000050%27 HTTP/1.1
+Host: 10.10.10.222:7048
+Authorization: NTLM TlRMTVNTUAABAAAAB4IIogAAAAAAAAAAAAAAAAAAAAAKANc6AAAADw==
+Connection: Keep-Alive
+Accept: application/variant_div(left, right).epg.vrt.be.playlist_1.1+xml
+Content-Type: application/json; charset=utf-8
+
+< HTTP/1.1 401 Unauthorized
+< Content-Length: 0
+< Server: Microsoft-HTTPAPI/2.0
+< WWW-Authenticate: NTLM TlRMTVNTUAACAAAAGgAaADgAAAAFgomifu1Twsfw9bUAAAAAAAAAAM4AzgBSAAAABgLwIwAAAA9MAEUAUwBUAFUARABMAEkATQBJAFQARQBEAAIAGgBMAEUAUwBUAFUARABMAEkATQBJAFQARQBEAAEADgBOAEEAVgBTAFYAUgA0AAQAJgBsAGUAcwB0AHUAZABsAGkAbQBpAHQAZQBkAC4AbABvAGMAYQBsAAMANgBOAGEAdgBzAHYAcgA0AC4AbABlAHMAdAB1AGQAbABpAG0AaQB0AGUAZAAuAGwAbwBjAGEAbAAFACYAbABlAHMAdAB1AGQAbABpAG0AaQB0AGUAZAAuAGwAbwBjAGEAbAAHAAgAOCZuAKeL0wEAAAAA
+< Date: Fri, 12 Jan 2018 13:12:30 GMT
+< 
+* Curl_http_done: called premature == 0
+* Connection #0 to host 10.10.10.222 left intact
+* Issue another request to this URL: 'http://10.10.10.222:7048/DynamicsNAV80/OData/Company(%27SilverStone%20Tyres%20Ltd%27)/custLedgerEntries?$format=json&$filter=Customer_No%20eq%20%27C0000000050%27'
+* Found bundle for host 10.10.10.222: 0x7a63dd0 [can pipeline]
+* Re-using existing connection! (#0) with host 10.10.10.222
+* Connected to 10.10.10.222 (10.10.10.222) port 7048 (#0)
+* Server auth using NTLM with user 'intergration'
+> GET /DynamicsNAV80/OData/Company(%27SilverStone%20Tyres%20Ltd%27)/custLedgerEntries?$format=json&$filter=Customer_No%20eq%20%27C0000000050%27 HTTP/1.1
+Host: 10.10.10.222:7048
+Authorization: NTLM TlRMTVNTUAADAAAAGAAYAI4AAABWAVYBpgAAAAAAAABYAAAAGAAYAFgAAAAeAB4AcAAAAAAAAAD8AQAABYKIogoA1zoAAAAPckJDh+KT4bjXz1CQhs6CAWkAbgB0AGUAcgBnAHIAYQB0AGkAbwBuAEQARQBTAEsAVABPAFAALQBEAFEATwAzAE8AQgBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGDwyUrf0Bz8fXGxVIGJgJ0BAQAAAAAAADgmbgCni9MBC1Y4iPI7lDcAAAAAAgAaAEwARQBTAFQAVQBEAEwASQBNAEkAVABFAEQAAQAOAE4AQQBWAFMAVgBSADQABAAmAGwAZQBzAHQAdQBkAGwAaQBtAGkAdABlAGQALgBsAG8AYwBhAGwAAwA2AE4AYQB2AHMAdgByADQALgBsAGUAcwB0AHUAZABsAGkAbQBpAHQAZQBkAC4AbABvAGMAYQBsAAUAJgBsAGUAcwB0AHUAZABsAGkAbQBpAHQAZQBkAC4AbABvAGMAYQBsAAcACAA4Jm4Ap4vTAQYABAACAAAACAAwADAAAAAAAAAAAAAAAABAAACBEDvKjAQQwpfQFxxQAiWM7S+Ni4RncMi4PK0BCygZBQoAEAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAAAAAAA==
+Connection: Keep-Alive
+Accept: application/variant_div(left, right).epg.vrt.be.playlist_1.1+xml
+Content-Type: application/json; charset=utf-8
+
+< HTTP/1.1 200 OK
+< Cache-Control: no-cache
+< Content-Length: 87615
+< Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+< Server: Microsoft-HTTPAPI/2.0
+< X-Content-Type-Options: nosniff
+< DataServiceVersion: 3.0;
+< Date: Fri, 12 Jan 2018 13:12:30 GMT
+< 
+* Curl_http_done: called premature == 0
+* Connection #0 to host 10.10.10.222 left intact
