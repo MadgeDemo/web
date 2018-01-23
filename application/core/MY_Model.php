@@ -16,7 +16,7 @@ class MY_Model extends CI_Model
 		$my_url = $this->config->item('apiURL').$url;
 		$headers = array('X-API-KEY' => $apiKey);
 		$options = array('verify' => false);
-		
+		// echo($my_url);
 		if ($method == 'GET') {
 			$request = $this->requests->get($my_url, $headers, $data);
 		} else if ($method == 'POST') {
@@ -24,7 +24,7 @@ class MY_Model extends CI_Model
 		} else if ($method == 'PUT') {
 			$request = $this->requests->put($my_url, $headers, $data);
 		}
-		
+		// $my_url = '';
 		return $request->body;
 	}
 	
