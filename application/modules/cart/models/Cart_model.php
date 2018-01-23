@@ -29,9 +29,32 @@ class Cart_model extends MY_Model
 		
 		$request = $this->requests->get($my_url, $headers, null);
 		$response = json_decode($request->body);
-		
+
 		if ($response->status == false) return null;
 
 		return $response->data;
 	}
+
+	function add_to_cart($service = null)
+	{
+		if (empty($service)) echo json_encode([
+							'status' => false, 
+							'message' => 'No service selected']);
+
+		$data = ['email' => $this->session->userdata('email'), 'service' => $service];
+		$apiKey = $this->config->item('appKey');
+		$myURL = 'cart';
+		
+		return parent::APIcall($myURL,'POST',$data,$apiKey);
+	}
+
+	function checkout()
+	{
+		$data = ['email' => $this->session->userdata('email')];
+		$apiKey = $this->config->item('appKey');
+		$myURL = 'cart/checkout';
+
+		return parent::APIcall($myURL, 'POST', $data, $apiKey);
+	}
 }
+?>

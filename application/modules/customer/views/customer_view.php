@@ -32,25 +32,25 @@
                         <a aria-expanded="false" role="button" href="layouts.html"> Back to main Layout page</a>
                     </li> -->
                     <li class="active">
-                        <a aria-expanded="false" role="button" href="#"> Services </span></a>
+                        <a aria-expanded="false" role="button" href="<?= @base_url(); ?>customer"> Services </span></a>
                     </li>
                     <li class="">
-                        <a aria-expanded="false" role="button" href="#"> Orders </span></a>
+                        <a aria-expanded="false" role="button" href="<?= @base_url(); ?>customer/orders"> Orders </span></a>
                     </li>
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="dropdown">
                         <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Cart <span class="caret"></span></a>
-                        <ul role="menu" class="dropdown-menu">
+                        <ul role="menu" class="dropdown-menu" id="cartUl">
                         <?php
                             if ($cart) {
                                 foreach ($cart as $key => $value) {
                         ?>
-                                <li class="dropdown" style="margin:1em;"><?= @$value->name;?> <strong>Ksh.<?= @$value->value;?></strong></li>
+                                <li class="dropdown" style="margin:1em;"><?= @$value->name;?> <strong>Ksh.<?= @number_format($value->value);?></strong></li>
                         <?php
                                 }
                         ?>
-                            <li class="dropdown" style="margin:1em;"><a href="#"><button class="btn btn-success">Checkout</button></a></li>
+                            <li class="dropdown" style="margin:1em;"><a href="<?= @base_url(); ?>cart/checkout"><button class="btn btn-success">Checkout</button></a></li>
                         <?php
                             } else {
                         ?>
@@ -70,6 +70,7 @@
         </nav>
         </div>
         <div class="wrapper wrapper-content animated fadeInRight">
+            <div id="message"></div>
             <div class="row">
             <?php
                 foreach($services as $key => $value) {
@@ -83,7 +84,7 @@
                             </div>
                             <div class="product-desc">
                                 <span class="product-price">
-                                    Ksh. <?= @$value->price; ?>
+                                    Ksh. <?= @number_format($value->price); ?>
                                 </span>
                                 <small class="text-muted">Category</small>
                                 <a href="#" class="product-name">Services</a>
@@ -92,7 +93,7 @@
                                 </div>
                                 <div class="m-t text-righ">
 
-                                    <button class="btn btn-xs btn-outline btn-primary">Select <i class="fa fa-long-arrow-right"></i> </button>
+                                    <button class="btn btn-xs btn-outline btn-primary select_service" value="<?= @$value->ID;?>">Select <i class="fa fa-long-arrow-right"></i> </button>
                                 </div>
                             </div>
                         </div>
@@ -142,10 +143,38 @@
     <script src="<?= @base_url(); ?>assets/js/demo/peity-demo.js"></script>
 
 
-    <script>
-        
+    <script type="text/javascript">
+        $().ready(function(){
+            $("#message").hide();
+            $(".select_service").click(function(){
+                service = $(this).val();
+                $.post("<?= @base_url(); ?>cart/add", {'service': service}, function(res) {
+                    obj = JSON.parse(res);
+                    if (obj.status == false) {
+                        $("#message").html(obj.message);
+                        $("#message").attr('class', 'alert alert-danger');
+                        $("#message").show();
+                        setTimeout(function(){
+                            $("#message").hide();
+                        }, 3000);
+                    }
 
-
+                    if (obj.status == true) {
+                        $("#message").html(obj.message);
+                        $("#message").attr('class', 'alert alert-success');
+                        $("#message").show();
+                        $.get("<?= @base_url(); ?>customer/get_customer_cart", function(response){
+                            obj = JSON.parse(response);
+                            $("#cartUl").html(obj);
+                        });
+                        setTimeout(function(){
+                            $("#message").hide();
+                        }, 6000);
+                        
+                    }
+                });
+            });
+        });
     </script>
 
 </body>
