@@ -169,7 +169,7 @@
                         });
                         setTimeout(function(){
                             $("#message").hide();
-                        }, 6000);
+                        }, 2000);
                         
                     }
                 });
